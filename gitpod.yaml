@@ -1,25 +1,16 @@
 image:
-  file: .gitpod.dockerfile
+  file: .gitpod.Dockerfile
 
+# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - before: >
-      source ~/.bashrc
-    init: |
-      echo "Wait for the installation"
-      yes | sdk i java 8.0.232-open
-      sdk i kotlin
-      sdkmanager --update
-      yes | sdkmanager --licenses
-      flutter pub get
+  - init: |
+      flutter upgrade
+      flutter update-packages --force-upgrade
       flutter run -d web-server --no-resident
-    command: >
-      echo "Ready!"
 ports:
   - port: 8080
-    onOpen: open-preview
-  - port: 5037
-    onOpen: ignore
+    onOpen: notify
 vscode:
   extensions:
-    - Dart-Code.flutter@3.7.1:gujVOCgsbgoN2/po8X1tfA==
-    - Dart-Code.dart-code@3.7.1:3XT4xvtPoRdNasA5smNMiA==
+    - Dart-Code.dart-code@3.10.0-beta.2:tUOuxmX97tnVRlRhi8Z1og==
+    - Dart-Code.flutter@3.9.1:Ef3b5HLzz0C/TIa0n9xSyA==
