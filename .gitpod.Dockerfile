@@ -13,7 +13,7 @@ RUN curl -fsSL https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key a
 # Install flutter
 USER gitpod
 RUN cd /home/gitpod \
-    && wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz \
+    && wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz \
     && tar -xvf flutter*.tar.xz \
     && rm -f flutter*.tar.xz
 
